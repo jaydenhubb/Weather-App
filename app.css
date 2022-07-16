@@ -1,0 +1,11 @@
+body{
+    background: #afa294;
+    letter-spacing: 0.2em;
+    font-size: 0.8em;
+}
+.container{
+    max-width: 400px;
+}
+.loc-change label{
+    font-size: 18px;
+}
