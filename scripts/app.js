@@ -4,9 +4,9 @@ const card = document.querySelector(".card");
 
 const info = document.querySelector(".info");
 
-const DayLightSaving = document.queerySelector(".dayl-saving");
+const DayLightSaving = document.querySelector(".dayl-saving");
 
-const dicon = document.querySelector(".d-icon img");
+
 
 // this function update the UI
 
@@ -23,6 +23,19 @@ const updateUI = (data) => {
             <span>&deg;C</span>
         </div>
     `;
+
+    
+
+    // night and day img
+    let src = null;
+    if (cityWeather.isDayTime){
+        src = 'img/day.svg'
+    }else{
+        src= 'img/night.svg'
+    }
+    DayLightSaving.setAttribute('src', src)
+
+
 
   if (card.classList.contains("d-none")) {
     card.classList.remove("d-none");
