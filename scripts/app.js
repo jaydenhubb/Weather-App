@@ -6,8 +6,6 @@ const info = document.querySelector(".info");
 
 const DayLightSaving = document.querySelector(".dayl-saving");
 
-
-
 // this function update the UI
 
 const updateUI = (data) => {
@@ -24,18 +22,14 @@ const updateUI = (data) => {
         </div>
     `;
 
-    
-
-    // night and day img
-    let src = null;
-    if (cityWeather.isDayTime){
-        src = 'img/day.svg'
-    }else{
-        src= 'img/night.svg'
-    }
-    DayLightSaving.setAttribute('src', src)
-
-
+  // night and day img
+  let src = null;
+  if (cityWeather.isDayTime) {
+    src = "img/day.svg";
+  } else {
+    src = "img/night.svg";
+  }
+  DayLightSaving.setAttribute("src", src);
 
   if (card.classList.contains("d-none")) {
     card.classList.remove("d-none");
@@ -60,4 +54,11 @@ form.addEventListener("submit", (e) => {
   inputCity(userInput)
     .then((data) => updateUI(data))
     .catch((err) => console.log(err));
+  localStorage.setItem("city", userInput);
 });
+
+if (localStorage.getItem("city")) {
+  inputCity(localStorage.getItem("city"))
+    .then((data) => updateUI(data))
+    .catch((err) => console.log(err));
+}
